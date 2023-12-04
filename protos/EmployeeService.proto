@@ -18,6 +18,10 @@ service EmployeeService {
   rpc DeleteEmployee (EmployeeID) returns (StatusReply) {}
   // List all employees
   rpc ListAllEmployees (EmptyMessage) returns (EmployeeDataList) {}
+  // Get Average Wage
+  rpc GetAverageWage (EmptyMessage) returns (AverageWage) {}
+  // Get high Wage
+  rpc GetHighWage (EmptyMessage) returns (HighWage) {}
   
 }
 
@@ -49,10 +53,6 @@ message EmployeeTitleUpdate {
 }
 
 message EmptyMessage{}
-
-rpc GetAverageWage (EmptyMessage) returns (AverageWage) {}
-
-rpc GetHighWage (EmptyMessage) returns (HighWage) {}
 
 message EmployeeDataList{
   repeated EmployeeData employee_data = 1;
