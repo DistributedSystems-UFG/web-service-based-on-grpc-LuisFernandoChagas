@@ -15,6 +15,14 @@ def run():
         response = stub.GetEmployeeDataFromID(EmployeeService_pb2.EmployeeID(id=101))
         print ('Employee\'s data: ' + str(response))
 
+        # Get the average wage from the employees - Endpoint 1
+        response = stub.GetAverageWage(EmployeeService_pb2.EmptyMessage())
+        print('Average Wage: ' + str(response.average_wage))
+
+        # Get the high wage from the employees - Endpoint 2
+        response = stub.GetHighWage(EmployeeService_pb2.EmptyMessage())
+        print('Employee with Highest Wage: ' + str(response.employee_data))
+
         # Add a new employee
         response = stub.CreateEmployee(EmployeeService_pb2.EmployeeData(id=301, name='Jose da Silva', title='Programmer'))
         print ('Added new employee ' + response.status)

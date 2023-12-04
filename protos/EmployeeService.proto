@@ -31,6 +31,14 @@ message StatusReply {
   string status = 1;
 }
 
+message AverageWage {
+  float average_wage = 1;
+}
+
+message HighWage {
+  EmployeeData employee_data = 1;
+}
+
 message EmployeeID {
   uint32 id = 1;
 }
@@ -41,6 +49,10 @@ message EmployeeTitleUpdate {
 }
 
 message EmptyMessage{}
+
+rpc GetAverageWage (EmptyMessage) returns (AverageWage) {}
+
+rpc GetHighWage (EmptyMessage) returns (HighWage) {}
 
 message EmployeeDataList{
   repeated EmployeeData employee_data = 1;
